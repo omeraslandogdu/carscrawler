@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  app:
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/dev/app/Dockerfile
+    ports:
+      - "1938:1938"
+    expose:
+      - "1938"
+    links:
+      - db
+    volumes:
+      - .:/app
+    command: tail -f /dev/null
+
+  db:
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/dev/db/Dockerfile
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+    volumes:
+      - .data/db:/var/lib/mysql
