@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
+from scrapy import Selector
 
 
 class CarsSpider(scrapy.Spider):
@@ -17,4 +18,5 @@ class CarsSpider(scrapy.Spider):
         super().__init__(**kwargs)  # python3
 
     def parse(self, response):
-        pass
+
+        hxs = Selector(response)

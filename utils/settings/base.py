@@ -14,7 +14,7 @@ SECRET_KEY = env('SECRET_KEY', default='dt5g1w&-ts)a=54&gzaix&eqtoom5p6a19^c*+rx
 
 DEBUG = env('DJANGO_DEBUG', default=False)
 
-ALLOWED_HOSTS = env('ALLOWED_HOSTS')
+ALLOWED_HOSTS = "*"
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -27,10 +27,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DJANGO_APPS = (
     # third party but need to place before contrib.admin
-    'jet',
-    'jet.dashboard',
-    'admin_view_permission',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
