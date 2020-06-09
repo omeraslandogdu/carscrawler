@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 # Application definition
 
-DJANGO_APPS = (
+INSTALLED_APPS = (
     # third party but need to place before contrib.admin
     'django.contrib.admin',
     'django.contrib.auth',
@@ -33,19 +33,14 @@ DJANGO_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-)
 
-THIRD_PARTY_APPS = (
     'rest_framework',
     'django_filters',
-)
 
-LOCAL_APPS = (
     'src.core.apps.CoreConfig',
     'src.cars.apps.CarsConfig',
 )
 
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
