@@ -26,6 +26,6 @@ Scrapy'yi çalıştırıp crawl işlemlerini başlatmak için:
      
 Bu crawl işlemlerinin sonuna,
        
-       -s CONCURRENT_ITEMS=1 -s CONCURRENT_REQUESTS=1 -s DOWNLOAD_DELAY=6.0  -s RANDOMIZE_DOWNLOAD_DELAY=False -s DOWNLOAD_TIMEOUT=30.0
+       -s CONCURRENT_ITEMS=1 -s CONCURRENT_REQUESTS=1 -s DOWNLOAD_DELAY=6.0  -s RANDOMIZE_DOWNLOAD_DELAY=True -s DOWNLOAD_TIMEOUT=30.0
     
 parametrelerini ekleyerek crawl işlemi sırasında sisteme bindirilen yükü de kontrol altında tutabiliriz.
