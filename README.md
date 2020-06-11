@@ -29,3 +29,6 @@ Bu crawl işlemlerinin sonuna,
        -s CONCURRENT_ITEMS=1 -s CONCURRENT_REQUESTS=1 -s DOWNLOAD_DELAY=6.0  -s RANDOMIZE_DOWNLOAD_DELAY=True -s DOWNLOAD_TIMEOUT=30.0
     
 parametrelerini ekleyerek crawl işlemi sırasında sisteme bindirilen yükü de kontrol altında tutabiliriz.
+
+Apiye ulaşmak için 0.0.0.0:1938/api/v1/cars/ şeklinde ulaşabiliriz.
+? ile başlayarak filtreleri ekleyebilirsiniz.
