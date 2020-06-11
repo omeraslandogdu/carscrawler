@@ -11,13 +11,13 @@ class CrawlerPipeline(object):
     def process_item(self, item, spider):
         cars = Cars()
         cars.brand = item['brand']
-        cars.urlitem = ['url']
+        cars.url = item['url']
         cars.year = item['year']
-        cars.priceitem = ['price']
+        cars.price = item['price']
         cars.mileage = item['mileage']
         cars.ext_color = item['ext_color']
-        cars.int_coloritem = ['int_color']
-        cars.transmissionitem = ['transmission']
+        cars.int_color = item['int_color']
+        cars.transmission = item['transmission']
         cars.drivetrain = item['drivetrain']
 
         cars.save()

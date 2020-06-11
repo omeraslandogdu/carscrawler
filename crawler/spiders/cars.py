@@ -53,7 +53,7 @@ class Cars(Spider):
             except:
                 item['mileage'] = ''
 
-            item['url'] = block.xpath('//div[@class="shop-srp-listings__listing-container"][{}]/a/@href'.format(i + 1)).extract_first()
+            item['url'] = 'https://cars.com' + block.xpath('//div[@class="shop-srp-listings__listing-container"][{}]/a/@href'.format(i + 1)).extract_first()
 
             yield item
 
