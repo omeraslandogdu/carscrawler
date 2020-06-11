@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "476c250c-7524-4b5e-b5d1-46170c776004",
+		"name": "Cars Listing API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CARS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/cars/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CARS filtered 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/cars/?brand=FORD&ext_color=White&transmission=Automatic",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						""
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "FORD"
+						},
+						{
+							"key": "ext_color",
+							"value": "White"
+						},
+						{
+							"key": "transmission",
+							"value": "Automatic"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CARS filtered 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/cars/?brand=BMW&ext_color=Black&transmission=Automatic&drivetrain=RWD",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						""
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "BMW"
+						},
+						{
+							"key": "ext_color",
+							"value": "Black"
+						},
+						{
+							"key": "transmission",
+							"value": "Automatic"
+						},
+						{
+							"key": "drivetrain",
+							"value": "RWD"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CARS filtered 3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/v1/cars/?brand=FORD&transmission=Manual&year=2019",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						""
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "FORD"
+						},
+						{
+							"key": "transmission",
+							"value": "Manual"
+						},
+						{
+							"key": "year",
+							"value": "2019"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

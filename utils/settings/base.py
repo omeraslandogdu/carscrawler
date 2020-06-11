@@ -14,7 +14,7 @@ SECRET_KEY = env('SECRET_KEY', default='dt5g1w&-ts)a=54&gzaix&eqtoom5p6a19^c*+rx
 
 DEBUG = env('DJANGO_DEBUG', default=False)
 
-ALLOWED_HOSTS = env('ALLOWED_HOSTS')
+ALLOWED_HOSTS = "*"
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,31 +25,22 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 # Application definition
 
-DJANGO_APPS = (
+INSTALLED_APPS = (
     # third party but need to place before contrib.admin
-    'jet',
-    'jet.dashboard',
-    'admin_view_permission',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-)
 
-THIRD_PARTY_APPS = (
     'rest_framework',
     'django_filters',
-)
 
-LOCAL_APPS = (
     'src.core.apps.CoreConfig',
     'src.cars.apps.CarsConfig',
 )
 
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,6 +70,10 @@ TEMPLATES = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
+
 WSGI_APPLICATION = 'src.wsgi.application'
 
 
@@ -87,12 +82,12 @@ WSGI_APPLICATION = 'src.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.mysql',
         'HOST': 'db',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'PORT': 5432,
+        'NAME': 'mysql',
+        'USER': 'root',
+        'PASSWORD': 'mysql',
+        'PORT': 3306,
     },
 }
 
