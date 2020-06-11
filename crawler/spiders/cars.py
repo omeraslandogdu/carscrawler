@@ -13,13 +13,15 @@ class Cars(Spider):
     def __init__(self, **kwargs):
         self.brand = kwargs.pop('brand')
         if self.brand == 'BMW':
-            self.start_urls = ["https://www.cars.com/for-sale/searchresults.action/?mkId=20005&page=1&perPage=100&rd=20&searchSource=NEW_SEARCH&sort=relevance&zc=90006"]
+            self.start_urls = ["https://www.cars.com/for-sale/searchresults.action/?mkId=20005&page={}&perPage=20&rd=20&searchSource=NEW_SEARCH&sort=relevance&zc=90006".format(i) for i in range(1,5)]
         elif self.brand == 'FORD':
-            self.start_urls = ["https://www.cars.com/for-sale/searchresults.action/?mkId=20015&page=1&perPage=100&rd=20&searchSource=NEW_SEARCH&sort=relevance&zc=90006"]
+            self.start_urls = ["https://www.cars.com/for-sale/searchresults.action/?mkId=20015&page={}&perPage=20&rd=20&searchSource=NEW_SEARCH&sort=relevance&zc=90006".format(i) for i in range(1,5)]
         super().__init__(**kwargs)  # python3
 
     def parse(self, response):
         item = CrawlerItem()
+
+
 
         blocks = response.xpath('//*[@id="srp-listing-rows-container"]/div[@class="shop-srp-listings__listing-container"]')
 
