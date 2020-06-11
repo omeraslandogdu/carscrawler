@@ -19,48 +19,39 @@ class Cars(Spider):
         super().__init__(**kwargs)  # python3
 
     def parse(self, response):
+        item = CrawlerItem()
 
         blocks = response.xpath('//*[@id="srp-listing-rows-container"]/div[@class="shop-srp-listings__listing-container"]')
 
         for i,block in enumerate(blocks):
 
+            item['ext_color'] = block.xpath('.//ul[@class="listing-row__meta"]//text()').extract()[3].strip()
+            item['int_color'] = block.xpath('.//ul[@class="listing-row__meta"]//text()').extract()[7].strip()
+            item['transmission'] = block.xpath('.//ul[@class="listing-row__meta"]//text()').extract()[11].strip()
+            item['drivetrain'] = block.xpath('.//ul[@class="listing-row__meta"]//text()').extract()[15].strip()
+
             car = block.xpath('.//h2[@class="listing-row__title"]/text()').extract_first().strip()
 
-            year = car[0:4]
+            item['year'] = car[0:4]
 
             try:
-                price = block.xpath('.//span[@class="listing-row__price "]/text()').extract_first().strip().replace('$','').replace(',', '')
+                item['price'] = block.xpath('.//span[@class="listing-row__price "]/text()').extract_first().strip().replace('$','').replace(',', '')
             except AttributeError:
-                price = block.xpath('.//span[@class="listing-row__price new"]/text()').extract_first().strip().replace('$', '').replace(',', '')
+                item['price'] = block.xpath('.//span[@class="listing-row__price new"]/text()').extract_first().strip().replace('$', '').replace(',', '')
 
-            if price == '':
-                price = 0
+            if item['price'] == '':
+                item['price'] = 0
             else:
-                price = int(price)
+                item['price'] = int(item['price'])
 
-            brand = self.brand
-            ext_color = block.xpath('.//ul[@class="listing-row__meta"]//text()').extract()[3].strip()
-            int_color = block.xpath('.//ul[@class="listing-row__meta"]//text()').extract()[7].strip()
-            transmission = block.xpath('.//ul[@class="listing-row__meta"]//text()').extract()[11].strip()
-            drivetrain = block.xpath('.//ul[@class="listing-row__meta"]//text()').extract()[15].strip()
+            item['brand'] = self.brand
 
             try:
-                mileage = block.xpath('.//span[@class="listing-row__mileage"]/text()').extract_first().strip()
+                item['mileage'] = block.xpath('.//span[@class="listing-row__mileage"]/text()').extract_first().strip()
             except:
-                mileage = None
+                item['mileage'] = ''
 
-            detail_url = block.xpath('//div[@class="shop-srp-listings__listing-container"][{}]/a/@href'.format(i + 1)).extract_first()
-
-            item = CrawlerItem()
-            item['brand'] = brand
-            item['url'] = 'https://cars.com' + detail_url
-            item['year'] = year
-            item['price'] = price
-            item['mileage'] = mileage
-            item['ext_color'] = ext_color
-            item['int_color'] = int_color
-            item['transmission'] = transmission
-            item['drivetrain'] = drivetrain
+            item['url'] = block.xpath('//div[@class="shop-srp-listings__listing-container"][{}]/a/@href'.format(i + 1)).extract_first()
 
             yield item
 

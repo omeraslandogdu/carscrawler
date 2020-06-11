@@ -58,10 +58,20 @@ ITEM_PIPELINES = {
 }
 
 SPIDER_MIDDLEWARES = {
-    'crawler.middlewares.CrawlerSpiderMiddleware': 543,
+    'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
 }
 
 RANDOMIZE_DOWNLOAD_DELAY = True
 
 DOWNLOAD_DELAY = 2
 
+
+SPLASH_URL = 'http://192.168.0.16:8050'
+
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy_splash.SplashCookiesMiddleware': 723,
+    'scrapy_splash.SplashMiddleware': 725,
+    'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
+}
+
+DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
