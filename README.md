@@ -30,5 +30,9 @@ Bu crawl işlemlerinin sonuna,
     
 parametrelerini ekleyerek crawl işlemi sırasında sisteme bindirilen yükü de kontrol altında tutabiliriz.
 
-Apiye ulaşmak için 0.0.0.0:1938/api/v1/cars/ şeklinde ulaşabiliriz.
+Apiye ulaşmak için 
+        
+        0.0.0.0:1938/api/v1/cars/ 
+        şeklinde ulaşabiliriz.
+        
 ? ile başlayarak filtreleri ekleyebilirsiniz.
