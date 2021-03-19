@@ -1,5 +1,5 @@
 mysqlclient
-djangorestframework==3.10.2
+djangorestframework==3.11.2
 
 scrapy-djangoitem
 
