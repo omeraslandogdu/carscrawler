@@ -5,7 +5,7 @@ scrapy-djangoitem
 
 python-scrapyd-api
 
-django==3.0.7
+django==3.0.12
 
 Scrapy==1.7.3
 
