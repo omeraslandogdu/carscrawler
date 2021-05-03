@@ -1,14 +1,15 @@
 import os
 import sys
 import environ
+from django.conf import global_settings
 
 ROOT_DIR = environ.Path(__file__) - 3
-APPS_DIR = ROOT_DIR.path('src')
+APPS_DIR = ROOT_DIR.path("src")
 
 # Load operating system environment variables and then prepare to use the
 env = environ.Env(DEBUG=(bool, False), )
 
-environ.Env.read_env(str(ROOT_DIR.path('.env')))
+environ.Env.read_env(str(ROOT_DIR.path(".env")))
 
 SECRET_KEY = env('SECRET_KEY', default='dt5g1w&-ts)a=54&gzaix&eqtoom5p6a19^c*+rxi_mf5tmvh6')
 
@@ -26,6 +27,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Application definition
 
 INSTALLED_APPS = (
+    'jet.dashboard',
+    'jet',
+
     # third party but need to place before contrib.admin
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +44,7 @@ INSTALLED_APPS = (
     'src.core.apps.CoreConfig',
     'src.cars.apps.CarsConfig',
 )
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
 MIDDLEWARE = [
@@ -132,7 +137,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 STATIC_ROOT = str(ROOT_DIR.path('static'))
-MEDIA_ROOT = str(ROOT_DIR.path('media'))
+MEDIA_ROOT = str(ROOT_DIR.path("media"))
 
 JET_SIDE_MENU_COMPACT = True
 JET_CHANGE_FORM_SIBLING_LINKS = True

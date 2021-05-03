@@ -1,7 +1,5 @@
 FROM ubuntu:18.04
 
-ENV PYTHONUNBUFFERED 1
-
 WORKDIR /app
 
 COPY requirements /tmp/requirements
@@ -12,18 +10,12 @@ RUN apt-get install -y python3 \
     vim \
     python3-pip \
     libmysqlclient-dev \
-    locales \
-    wget \
-    unzip \
     python3-lxml \
     libxml2-dev \
     libxslt-dev \
     binutils \
     libproj-dev
 
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
 
 RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade setuptools

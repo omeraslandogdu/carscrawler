@@ -6,7 +6,7 @@ from rest_framework import routers
 
 v1_router = routers.DefaultRouter()
 
-v1_router.register(r'cars', CarsListView, base_name='cars')
+v1_router.register(r'cars', CarsListView)
 
 urlpatterns = [
     url(r'^v1/', include(v1_router.urls)),
