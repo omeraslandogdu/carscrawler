@@ -35,7 +35,7 @@ pytz==2021.1
 pyxdg==0.25
 queuelib==1.6.1
 requests==2.25.1
-Scrapy==1.7.3
+Scrapy==2.6.1
 scrapy-djangoitem==1.1.1
 SecretStorage==2.3.1
 service-identity==18.1.0
