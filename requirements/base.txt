@@ -19,7 +19,7 @@ idna==2.6
 incremental==21.3.0
 keyring==10.6.0
 keyrings.alt==3.0
-lxml==4.2.1
+lxml==4.9.1
 mysqlclient==2.0.3
 nighthtr-django-3-jet==1.0.8
 parsel==1.6.0
